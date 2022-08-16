@@ -1,10 +1,10 @@
 
-let logged = false;
+let logged = '';
 
 if (window.location.href.endsWith('home.html')) {
 
     window.onload = function () {
-        if (logged == 'true') {
+        if (logged == true) {
             console.log('yes');
         }
         const depoTotal = document.getElementById('depoTotal');
@@ -69,31 +69,12 @@ if (window.location.href.endsWith('home.html')) {
 
 
     }
-} else {
-
-    window.onload = function () {
-        const email = 'rafiqcoder@gmail.com';
-        const password = '123456';
-
-        const emailIn = document.getElementById('email');
-        const passIn = document.getElementById('password');
-        const submit_btn = document.getElementById('subBtn');
-
-        document.getElementById('subBtn').onclick = function () {
-            const emailVal = emailIn.value;
-            const passVal = passIn.value;
-            if (emailVal == email && passVal == password) {
-                logged = true;
-                window.location.href = "home.html";
-
-            } else {
-                alert('You Have Entered Wrong Email or Password');
-            }
-        };
-    }
 }
 
-console.log(logged);
+
+
+
+
 
 
 

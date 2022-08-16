@@ -13,19 +13,20 @@
 
 
         <h1 class="uppercase text-4xl font-bold py-10 mt-20">welcome to bapper bank</h1>
-        <div class="login_container w-9/12 bg-blue-300 rounded-lg flex flex-col items-center content-center py-16 gap-4">
-          <h3 class=" mt-11 text-4xl font-bold mb-5"> Please Login</h3>
-    
-          <input type="email" placeholder="Email Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none"
-            id="email">
-    
-          <input type="password" placeholder="password Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none "
-            id="password">
-    
-          <button class="bg-amber-600 px-16 py-4 rounded-lg text-white text-xl hover:bg-blue-600 mt-5 font-semibold"
-            type="button" id="subBtn">Login</button>
+        <div
+            class="login_container w-9/12 bg-blue-300 rounded-lg flex flex-col items-center content-center py-16 gap-4">
+            <h3 class=" mt-11 text-4xl font-bold mb-5"> Please Login</h3>
+
+            <input type="email" placeholder="Email Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none"
+                id="email">
+
+            <input type="password" placeholder="password Here"
+                class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none " id="password">
+
+            <button class="bg-amber-600 px-16 py-4 rounded-lg text-white text-xl hover:bg-blue-600 mt-5 font-semibold"
+                type="button" id="subBtn">Login</button>
         </div>
-    
+
 
 
 
@@ -62,7 +63,31 @@
             depo_btnz.addEventListener('click', function () {
                 console.log('clicked');
             });</script> -->
-        <script src="script.js"></script>
+            <script src="script.js"></script>
+        <script>
+             
+                const email = 'rafiqcoder@gmail.com';
+                const password = '123456';
+
+                const emailIn = document.getElementById('email');
+                const passIn = document.getElementById('password');
+                const submit_btn = document.getElementById('subBtn');
+
+                document.getElementById('subBtn').onclick = function () {
+                    const emailVal = emailIn.value;
+                    const passVal = passIn.value;
+                    if (emailVal == email && passVal == password) {
+                        logged = true;
+                        window.location.href = "home.html";
+
+                    } else {
+                        alert('You Have Entered Wrong Email or Password');
+                    }
+                };
+            console.log(logged);
+            
+        </script>
+      
     </body>
 
 </html>
