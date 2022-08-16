@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  </head>
+
+
+
+
+  <body class="flex justify-center items-center content-center flex-col">
+
+    <h1 class="uppercase text-4xl font-bold py-10 mt-20">welcome to bapper bank</h1>
+    <div class="login_container w-9/12 bg-blue-300 rounded-lg flex flex-col items-center content-center py-16 gap-4">
+      <h3 class=" mt-11 text-4xl font-bold mb-5"> Please Login</h3>
+
+      <input type="email" placeholder="Email Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none"
+        id="email">
+
+      <input type="password" placeholder="password Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none "
+        id="password">
+
+      <button class="bg-amber-600 px-16 py-4 rounded-lg text-white text-xl hover:bg-blue-600 mt-5 font-semibold"
+        type="button" id="subBtn">Login</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+
+    <script src="script.js"></script>
+
+  </body>
+
+</html>
