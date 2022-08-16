@@ -32,7 +32,7 @@ if (window.location.href.endsWith("login.html")) {
         const with_btn = document.getElementById('with_btn');
 
 
-      
+
         let balanceSum = 0;
         let depoSum = 0;
         document.getElementById('depo_btn').addEventListener('click', function () {
@@ -57,23 +57,26 @@ if (window.location.href.endsWith("login.html")) {
             // console.log(depoSum);
             let withSum = 0;
             document.getElementById('with_btn').addEventListener('click', function (e) {
-                
-                const withVal = parseInt(withIn.value);
-                console.log(withVal);
-                withSum = withSum + withVal;
 
-                console.log(balanceSum);
+                const withVal = parseInt(withIn.value);
+                console.log(`withdraw${withVal}`);
+                withSum = withSum + withVal;
+                console.log(withSum);
+                // console.log(balanceSum);
                 balanceSum = balanceSum - withVal;
-                console.log(balanceSum);
-                if (withTotal == 0) {
+                // console.log(balanceSum);
+                if (withSum == 0) {
                     withTotal.innerText = "$00";
-                } else if (balanceSum == 0) {
+                } else {
+                    withTotal.innerText = `$ ${withSum}`;
+                }
+                if (balanceSum == 0) {
                     totalBalance.innerText = "$00";
                 } else {
-                    withTotal.innerText = `$ ${withSum} `;
+
                     totalBalance.innerText = "$ " + balanceSum;
                 }
-              
+
                 e.stopImmediatePropagation();
             })
 
