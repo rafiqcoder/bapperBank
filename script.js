@@ -1,28 +1,12 @@
 
-if (window.location.href.endsWith("login.html")) {
+let logged = false;
+
+if (window.location.href.endsWith('home.html')) {
 
     window.onload = function () {
-        const email = 'rafiqcoder@gmail.com';
-        const password = '123456';
-
-        const emailIn = document.getElementById('email');
-        const passIn = document.getElementById('password');
-        const submit_btn = document.getElementById('subBtn');
-
-        document.getElementById('subBtn').onclick = function () {
-            const emailVal = emailIn.value;
-            const passVal = passIn.value;
-            if (emailVal == email && passVal == password) {
-                window.location.href = "index.html";
-            } else {
-                alert('You Have Entered Wrong Email or Password');
-            }
-        };
-    }
-} else if (window.location.href.endsWith('index.html')) {
-
-    window.onload = function () {
-
+        if (logged == 'true') {
+            console.log('yes');
+        }
         const depoTotal = document.getElementById('depoTotal');
         const withTotal = document.getElementById('withTotal');
         const totalBalance = document.getElementById('totalBalance');
@@ -86,9 +70,30 @@ if (window.location.href.endsWith("login.html")) {
 
     }
 } else {
-    console.log('false');
+
+    window.onload = function () {
+        const email = 'rafiqcoder@gmail.com';
+        const password = '123456';
+
+        const emailIn = document.getElementById('email');
+        const passIn = document.getElementById('password');
+        const submit_btn = document.getElementById('subBtn');
+
+        document.getElementById('subBtn').onclick = function () {
+            const emailVal = emailIn.value;
+            const passVal = passIn.value;
+            if (emailVal == email && passVal == password) {
+                logged = true;
+                window.location.href = "home.html";
+
+            } else {
+                alert('You Have Entered Wrong Email or Password');
+            }
+        };
+    }
 }
 
+console.log(logged);
 
 
 
