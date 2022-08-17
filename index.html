@@ -19,7 +19,7 @@
 
             <input type="email" placeholder="Email Here" class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none"
                 id="email">
-
+            <p id="email_validaion" class="text-red-600 text-xl"></p>
             <input type="password" placeholder="password Here"
                 class="px-8 py-4 rounded-lg w-9/12 text-xl focus:outline-none " id="password">
 
@@ -63,31 +63,88 @@
             depo_btnz.addEventListener('click', function () {
                 console.log('clicked');
             });</script> -->
-            <script src="script.js"></script>
+        <script src="script.js"></script>
         <script>
-             
-                const email = 'rafiqcoder@gmail.com';
-                const password = '123456';
 
-                const emailIn = document.getElementById('email');
-                const passIn = document.getElementById('password');
-                const submit_btn = document.getElementById('subBtn');
+            const email = 'rafiqcoder@gmail.com';
+            const password = '123456';
 
-                document.getElementById('subBtn').onclick = function () {
-                    const emailVal = emailIn.value;
-                    const passVal = passIn.value;
-                    if (emailVal == email && passVal == password) {
-                        logged = true;
-                        window.location.href = "home.html";
-
-                    } else {
-                        alert('You Have Entered Wrong Email or Password');
-                    }
-                };
-            console.log(logged);
+            const emailIn = document.getElementById('email');
+            const passIn = document.getElementById('password');
+            const submit_btn = document.getElementById('subBtn');
             
+
+            let includeCheck = '/!#$%^&*(){}[]<>?/';
+            let strings = includeCheck.split("");
+
+            function inSym(e) {
+
+                if (e.target.value) {
+                    for (const string of strings) {
+
+                        // console.log(string);
+                        if (e.target.value) {
+                            if (e.target.value.includes(string)) {
+
+                                document.getElementById('email_validaion').innerText = " You cannot use any symbol except @ ";
+                            }
+
+                        }
+                        else {
+                            document.getElementById('email_validaion').innerText = " ";
+                        }
+                    }
+                }
+                else {
+                    document.getElementById('email_validaion').innerText = "  ";
+                }
+                // return true;
+            } emailIn.addEventListener('keyup', inSym);
+
+            // console.log(typeof(symbolCheck));
+            // if (symbolCheck) {
+            //     console.log("true");
+            // }
+            function emailValidate(e) {
+
+                // console.log(passVal);
+                emailIn.removeEventListener('keyup', inSym);
+                if (e.target.value) {
+                    if (e.target.value.includes("@gmail.com")) {
+
+
+                        document.getElementById('email_validaion').innerText = " ";
+                    }
+                    else {
+                        document.getElementById('email_validaion').innerText = " example@gmail.com ";
+                    }
+                }
+                else {
+                    document.getElementById('email_validaion').innerText = "  ";
+                }
+
+            } emailIn.addEventListener('mouseout', emailValidate);
+
+            emailIn.addEventListener('mouseenter', inSym);
+
+
+            document.getElementById('subBtn').onclick = function () {
+                const emailVal = document.getElementById('email').value;
+
+                const passVal = document.getElementById('password').value;
+                
+                if (emailVal == email && passVal == password) {
+
+                    window.location.href = "home.html";
+
+                } else {
+                    alert('You Have Entered Wrong Email or Password');
+                }
+            };
+
+
         </script>
-      
+
     </body>
 
 </html>

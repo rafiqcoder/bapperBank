@@ -22,7 +22,7 @@ if (window.location.href.endsWith('home.html')) {
         document.getElementById('depo_btn').addEventListener('click', function () {
 
             // console.log('clicked');
-            const depoValue = parseInt(depoIn.value);
+            let depoValue = parseInt(depoIn.value);
             // console.log(depoValue);
             depoSum = depoSum + depoValue;
             balanceSum = balanceSum + depoValue;
@@ -38,31 +38,56 @@ if (window.location.href.endsWith('home.html')) {
                 console.log(balanceSum);
 
             }
+
             // console.log(depoSum);
             let withSum = 0;
+
+
+
             document.getElementById('with_btn').addEventListener('click', function (e) {
-
-                const withVal = parseInt(withIn.value);
-                console.log(`withdraw${withVal}`);
-                withSum = withSum + withVal;
-                console.log(withSum);
-                // console.log(balanceSum);
-                balanceSum = balanceSum - withVal;
-                // console.log(balanceSum);
-                if (withSum == 0) {
-                    withTotal.innerText = "$00";
-                } else {
-                    withTotal.innerText = `$ ${withSum}`;
-                }
-                if (balanceSum == 0) {
-                    totalBalance.innerText = "$00";
+                let withVal = parseInt(withIn.value);
+                console.log(withVal);
+                if (isNaN(withVal) || withVal == " ") {
+                    alert('please put a valid input');
                 } else {
 
-                    totalBalance.innerText = "$ " + balanceSum;
+                    if (balanceSum !== 0 && withVal <= balanceSum) {
+
+
+                        console.log(`withdraw${withVal}`);
+
+
+
+                        withSum = withSum + withVal;
+                        console.log(withSum);
+                        // console.log(balanceSum);
+                        balanceSum = balanceSum - withVal;
+
+
+
+                        // console.log(balanceSum);
+                        if (withSum == 0) {
+                            withTotal.innerText = "$00";
+                        } else {
+                            withTotal.innerText = `$ ${withSum}`;
+                        }
+                        if (balanceSum == 0) {
+                            totalBalance.innerText = "$00";
+                        } else {
+
+                            totalBalance.innerText = "$ " + balanceSum;
+                        }
+                    }
+                    else {
+                        alert('You dont have sufficient Balance');
+                    }
                 }
+
+
 
                 e.stopImmediatePropagation();
             })
+
 
         });
 
